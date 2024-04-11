@@ -30,7 +30,8 @@
     "test": "./node_modules/.bin/jest",
     "coverage": "./node_modules/.bin/jest --collect-coverage",
     "lint": "./node_modules/.bin/eslint . --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore",
-    "bump": "./node_modules/.bin/versiony package.json --patch"
+    "bump": "./node_modules/.bin/versiony package.json --patch",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "moment-timezone": "^0.5.28",
