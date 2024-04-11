@@ -36,7 +36,7 @@
   "dependencies": {
     "moment-timezone": "^0.5.28",
     "uuid": "^8.0.0",
-    "velocityjs": "^2.0.0"
+    "velocityjs": "^2.0.6"
   },
   "devDependencies": {
     "@types/jest": "^24.0.22",
