@@ -61,7 +61,30 @@ export default class Parser {
       },
     };
 
-    const res = render(this.template, params, macros);
+    interface CustomMethodHandler {
+        uid: string;
+        match: (options: { property: string, context: any }) => boolean;
+        resolve: (options: { params: any[] }) => any;
+    }
+    
+    const customMethodHandlers: CustomMethodHandler[] = [
+        {
+            uid: 'parseInt',
+            match: ({ property, context }) => {
+                return (typeof context === 'number') && property === 'parseInt';
+            },
+            resolve: ({ params }) => {
+                return parseInt(params[0]);
+            },
+        }
+    ];
+
+    const config = { 
+      customMethodHandlers 
+    }
+  
+
+    const res = render(this.template, params, macros,config);
 
     // Keep the full context
     this.internalContext = clonedContext;
